@@ -2,7 +2,7 @@
 
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/musenboy/ARC/master/LICENSE)&nbsp;
 
-阅读苹果官方![文档](https://developer.apple.com/library/ios/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html)对ARC的介绍后总结。
+阅读苹果官方[文档](https://developer.apple.com/library/ios/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html)对ARC的介绍后总结。
 
 ## ARC概述：  
 
@@ -54,6 +54,7 @@
 ## 注意事项
 
 - 不能在C结构中使用ids强引用。
+
 > 比如：`struct X { id x; float y; };`
 因为x默认为强引用保留，编译不能安全的合成所需的所有的代码。
 解决方法:
@@ -62,4 +63,4 @@
 (3)标志对象的引用为__unsafe_unretained。
 比如：`struct x { NSString * __unsafe_unretained S; int X; }`
 
--不能直接在id和void*之间cast
+- 不能直接在id和void*之间cast
