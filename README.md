@@ -51,7 +51,7 @@
 - 使用-fno-objc-arc编译器标志禁用ARC，对单个文件也可以设置。
 - ARC只支持Xcode4.2、OS X v10.6和IOS 4之后的版本。
 
-# block里面的如何防止retain cycle
+## block里面的如何防止retain cycle
 
 - 使用弱引用打断block里面的retain cycle。 MRC中 _block 是不会引起retain；但在ARC中 _block 则会引起retain。ARC中应该使用 _weak 或__unsafe_unretained弱引用
 
