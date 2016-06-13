@@ -55,12 +55,12 @@
 
 - 不能在C结构中使用ids强引用。
 
-> 比如：`struct X { id x; float y; };`
-> 因为x默认为强引用保留，编译不能安全的合成所需的所有的代码。
-> 解决方法:
-> (1)使用Objective-C对象代替结构体。
-> (2)如果使用objective - c的对象不是最佳的，那就考虑使用void*。
-> (3)标志对象的引用为__unsafe_unretained。
-> 比如：`struct x { NSString * __unsafe_unretained S; int X; }`
+> - 比如：`struct X { id x; float y; };`
+> - 因为x默认为强引用保留，编译不能安全的合成所需的所有的代码。
+> - 解决方法:
+> - (1)使用Objective-C对象代替结构体。
+> - (2)如果使用objective - c的对象不是最佳的，那就考虑使用void*。
+> - (3)标志对象的引用为__unsafe_unretained。
+> - 比如：`struct x { NSString * __unsafe_unretained S; int X; }`
 
 - 不能直接在id和void*之间cast
