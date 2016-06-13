@@ -37,7 +37,7 @@
 - 不需要保持引用对象活动着用__weak指定引用（__weak specifies a reference that does not keep the referenced object alive）。
 - 不需要保持引用对象活动着和不设置为nil用__unsafe_unretained指定引用（__unsafe_unretained specifies a reference that does not keep the referenced object alive and is not set to nil when there are no strong references to the object）。
 - __autoreleasing 是用来表示参数通过引用传递(id *)并返回自动释放（__autoreleasing is used to denote arguments that are passed by reference (id *) and are autoreleased on return）。
-- 正确使用限定符生命变量格式：
+- 正确使用限定符声明变量格式：
 `ClassName * qualifier variableName;`
 
 
@@ -56,11 +56,11 @@
 - 不能在C结构中使用ids强引用。
 
 > 比如：`struct X { id x; float y; };`
-因为x默认为强引用保留，编译不能安全的合成所需的所有的代码。
-解决方法:
-(1)使用Objective-C对象代替结构体。
-(2)如果使用objective - c的对象不是最佳的，那就考虑使用void*。
-(3)标志对象的引用为__unsafe_unretained。
-比如：`struct x { NSString * __unsafe_unretained S; int X; }`
+> 因为x默认为强引用保留，编译不能安全的合成所需的所有的代码。
+> 解决方法:
+> (1)使用Objective-C对象代替结构体。
+> (2)如果使用objective - c的对象不是最佳的，那就考虑使用void*。
+> (3)标志对象的引用为__unsafe_unretained。
+> 比如：`struct x { NSString * __unsafe_unretained S; int X; }`
 
 - 不能直接在id和void*之间cast
